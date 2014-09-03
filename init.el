@@ -8,7 +8,7 @@
   (package-refresh-contents))
 
 ;; My default package
-(defvar my-packages '(ergoemacs-mode clojure-mode tabbar company magit dash rainbow-delimiters cider markdown-mode php-mode clojure-cheatsheet web-mode)
+(defvar my-packages '(ergoemacs-mode clojure-mode tabbar company magit dash rainbow-delimiters cider markdown-mode php-mode web-mode)
   "A list of packages to ensure are installed at launch.")
 
 ;; Install those default packages if not yet installed
@@ -138,3 +138,7 @@
 (add-hook 'cider-repl-mode-hook 'smartparens-strict-mode)
 (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
 (setq cider-auto-select-error-buffer nil)
+
+(add-to-list 'load-path "~/.emacs.d/vendor/clojure-cheatsheet")
+(require 'clojure-cheatsheet)
+

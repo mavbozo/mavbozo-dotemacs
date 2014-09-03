@@ -1,0 +1,3 @@
+[submodule "vendor/clojure-cheatsheet"]
+	path = vendor/clojure-cheatsheet
+	url = git@github.com:mavbozo/clojure-cheatsheet.git
