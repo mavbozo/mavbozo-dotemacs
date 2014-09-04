@@ -3,7 +3,7 @@
 	url = git@github.com:mavbozo/clojure-cheatsheet.git
 [submodule "vendor/smartparens"]
 	path = vendor/smartparens
-	url = https://github.com/Fuco1/smartparens.git
+	url = git@github.com:Fuco1/smartparens.git
 [submodule "vendor/zenburn-emacs"]
 	path = vendor/zenburn-emacs
 	url = git@github.com:bbatsov/zenburn-emacs.git
