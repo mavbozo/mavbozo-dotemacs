@@ -176,3 +176,15 @@
 (add-to-list 'load-path "~/.emacs.d/vendor/clojure-cheatsheet")
 (require 'clojure-cheatsheet)
 
+
+;; YASNIPPET
+
+(require 'yasnippet)
+(yas-reload-all)
+(add-hook 'prog-mode-hook
+          '(lambda ()
+             (yas-minor-mode)))
+
+
+;; CLOJURE SNIPPETS
+(require 'clojure-snippets)
