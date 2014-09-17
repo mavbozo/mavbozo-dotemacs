@@ -125,7 +125,9 @@
 (setq org-log-done t)
 
 
-
+;; TABBAR SETTINGS
+(global-set-key (kbd "C-M-j") 'tabbar-backward-tab)
+(global-set-key (kbd "C-M-l") 'tabbar-forward-tab)
 
 ;; Add a buffer modification state indicator in the tab label, and place a
 ;; space around the label to make it looks less crowd.
