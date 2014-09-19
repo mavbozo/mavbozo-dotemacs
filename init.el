@@ -23,6 +23,9 @@
 (setq ergoemacs-theme nil) ;; Uses Standard Ergoemacs keyboard theme
 (setq ergoemacs-keyboard-layout "us") ;; Assumes QWERTY keyboard layout
 
+;; visual line mode
+(global-visual-line-mode 1)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
