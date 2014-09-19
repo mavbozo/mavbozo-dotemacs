@@ -8,7 +8,7 @@
   (package-refresh-contents))
 
 ;; My default package
-(defvar my-packages '(ergoemacs-mode clojure-mode clojure-snippets tabbar company magit dash rainbow-delimiters cider markdown-mode php-mode web-mode)
+(defvar my-packages '(ergoemacs-mode clojure-mode clojure-snippets tabbar company magit dash rainbow-delimiters cider markdown-mode php-mode web-mode s)
   "A list of packages to ensure are installed at launch.")
 
 ;; Install those default packages if not yet installed
@@ -193,3 +193,8 @@
 
 ;; CLOJURE SNIPPETS
 (require 'clojure-snippets)
+
+
+;; DATOMIC SNIPPETS
+(add-to-list 'load-path "~/.emacs.d/vendor/datomic-snippets")
+(require 'datomic-snippets)
