@@ -213,3 +213,46 @@
   (aset buffer-display-table ?\^M []))
 
 (add-hook 'cider-repl-mode-hook 'remove-dos-eol) ;Remove ^M from clojure repl in windows
+
+
+;;; cider reloaded
+(defun cider-repl-reset ()
+  (interactive)
+  (save-some-buffers)
+  (with-current-buffer (cider-current-repl-buffer)
+    (goto-char (point-max))
+    (insert "(user/reset)")
+    (cider-repl-return)))
+
+(defun set-cider-repl-reset-key ()
+  (local-set-key (kbd "<f12>") 'cider-repl-reset))
+
+
+(defun cider-repl-refresh ()
+  (interactive)
+  (save-some-buffers)
+  (with-current-buffer (cider-current-repl-buffer)
+    (goto-char (point-max))
+    (insert "(refresh)")
+    (cider-repl-return)))
+
+
+(defun set-cider-repl-refresh-key ()
+  (local-set-key (kbd "<f9>") 'cider-repl-refresh))
+
+(add-hook 'cider-repl-mode-hook 'set-cider-repl-refresh-key)
+
+
+(defun cider-repl-refresh-all ()
+  (interactive)
+  (save-some-buffers)
+  (with-current-buffer (cider-current-repl-buffer)
+    (goto-char (point-max))
+    (insert "(refresh)")
+    (cider-repl-return)))
+
+
+(defun set-cider-repl-refresh-all-key ()
+  (local-set-key (kbd "<f10>") 'cider-repl-refresh-all))
+
+(add-hook 'cider-repl-mode-hook 'set-cider-repl-refresh-all-key)
