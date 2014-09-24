@@ -227,6 +227,8 @@
 (defun set-cider-repl-reset-key ()
   (local-set-key (kbd "<f12>") 'cider-repl-reset))
 
+(add-hook 'cider-repl-mode-hook 'set-cider-repl-reset-key)
+
 
 (defun cider-repl-refresh ()
   (interactive)
@@ -248,7 +250,7 @@
   (save-some-buffers)
   (with-current-buffer (cider-current-repl-buffer)
     (goto-char (point-max))
-    (insert "(refresh)")
+    (insert "(refresh-all)")
     (cider-repl-return)))
 
 
