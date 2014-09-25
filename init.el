@@ -224,6 +224,9 @@
     (insert "(user/reset)")
     (cider-repl-return)))
 
+;;unset f12 key which is globally bind by ergoemacs-mode
+(global-unset-key (kbd "<f12>")) 
+
 (defun set-cider-repl-reset-key ()
   (local-set-key (kbd "<f12>") 'cider-repl-reset))
 
