@@ -228,7 +228,7 @@
 (global-unset-key (kbd "<f12>")) 
 
 (defun set-cider-repl-reset-key ()
-  (local-set-key (kbd "<f12>") 'cider-repl-reset))
+  (global-set-key (kbd "<f12>") 'cider-repl-reset))
 
 (add-hook 'cider-repl-mode-hook 'set-cider-repl-reset-key)
 
@@ -243,7 +243,7 @@
 
 
 (defun set-cider-repl-refresh-key ()
-  (local-set-key (kbd "<f9>") 'cider-repl-refresh))
+  (global-set-key (kbd "<f10>") 'cider-repl-refresh))
 
 (add-hook 'cider-repl-mode-hook 'set-cider-repl-refresh-key)
 
@@ -258,6 +258,6 @@
 
 
 (defun set-cider-repl-refresh-all-key ()
-  (local-set-key (kbd "<f10>") 'cider-repl-refresh-all))
+  (global-set-key (kbd "<f11>") 'cider-repl-refresh-all))
 
 (add-hook 'cider-repl-mode-hook 'set-cider-repl-refresh-all-key)
