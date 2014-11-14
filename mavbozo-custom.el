@@ -162,3 +162,10 @@
   (global-set-key (kbd "<f9>") 'cider-eval-expression-at-point-in-repl))
 
 (add-hook 'cider-repl-mode-hook 'set-cider-eval-expression-at-point-in-repl)
+
+
+;; UNIQUIFY
+(require 'uniquify)
+
+(setq uniquify-buffer-name-style 'post-forward
+      uniquify-separator ":")
