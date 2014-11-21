@@ -169,3 +169,12 @@
 
 (setq uniquify-buffer-name-style 'post-forward
       uniquify-separator ":")
+
+
+;; ERLANG
+
+(setq load-path (cons  (concat (getenv "ERLANG_TOOLS_PATH") "\\emacs")
+			load-path))
+(setq erlang-root-dir (getenv "ERLANG_PATH"))
+(setq exec-path (cons (concat (getenv "ERLANG_PATH") "\\bin") exec-path))
+(require 'erlang-start)
