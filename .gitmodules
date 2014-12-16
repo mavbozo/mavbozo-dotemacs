@@ -10,3 +10,6 @@
 [submodule "vendor/datomic-snippets"]
 	path = vendor/datomic-snippets
 	url = git@github.com:magnars/datomic-snippets.git
+[submodule "vendor/tabbar"]
+	path = vendor/tabbar
+	url = git@github.com:dholm/tabbar.git
