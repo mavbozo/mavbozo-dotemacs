@@ -8,7 +8,7 @@
   (package-refresh-contents))
 
 ;; My default package
-(defvar my-packages '(ergoemacs-mode helm clojure-mode clojure-snippets company magit dash rainbow-delimiters cider markdown-mode php-mode web-mode s)
+(defvar my-packages '(ergoemacs-mode helm clojure-mode clojure-snippets company magit dash rainbow-delimiters cider inf-clojure yaml-mode markdown-mode  php-mode web-mode s)
   "A list of packages to ensure are installed at launch.")
 
 ;; Install those default packages if not yet installed
