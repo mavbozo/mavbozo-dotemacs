@@ -52,6 +52,9 @@
 ;; clojure mode customizations
 (add-hook 'clojure-mode-hook 'subword-mode)
 
+;; inferior clojure hook
+(add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
+
 ;; rainbow delimiters for all programming mode
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
@@ -118,13 +121,14 @@
 
 ;; CIDER CUSTOMIZATION
 ;;; Remove ^M from clojure repl in windows
-(defun remove-dos-eol ()
-  "Do not show ^M in files containing mixed UNIX and DOS line endings."
-  (interactive)
-  (setq buffer-display-table (make-display-table))
-  (aset buffer-display-table ?\^M []))
+;;; commented because here https://github.com/clojure-emacs/cider#microsoft-windows, we can set it up on JVM opts
+;;; (defun remove-dos-eol ()
+;;;   "Do not show ^M in files containing mixed UNIX and DOS line endings."
+;;;   (interactive)
+;;;   (setq buffer-display-table (make-display-table))
+;;;   (aset buffer-display-table ?\^M []))
 
-(add-hook 'cider-repl-mode-hook 'remove-dos-eol) ;Remove ^M from clojure repl in windows
+;;; (add-hook 'cider-repl-mode-hook 'remove-dos-eol) ;Remove ^M from clojure repl in windows
 
 
 ;;; cider reloaded
@@ -203,8 +207,8 @@
 
 ;; ERLANG
 
-(setq load-path (cons  (concat (getenv "ERLANG_TOOLS_PATH") "\\emacs")
-			load-path))
-(setq erlang-root-dir (getenv "ERLANG_PATH"))
-(setq exec-path (cons (concat (getenv "ERLANG_PATH") "\\bin") exec-path))
-(require 'erlang-start)
+;;(setq load-path (cons  (concat (getenv "ERLANG_TOOLS_PATH") "\\emacs")
+;;			load-path))
+;;(setq erlang-root-dir (getenv "ERLANG_PATH"))
+;;(setq exec-path (cons (concat (getenv "ERLANG_PATH") "\\bin") exec-path))
+;;(require 'erlang-start)
