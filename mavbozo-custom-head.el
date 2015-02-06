@@ -20,8 +20,8 @@
 
 ;; ergoemacs mode
 (require 'ergoemacs-mode)
-(setq ergoemacs-theme nil) ;; Uses Standard Ergoemacs keyboard theme
-(setq ergoemacs-keyboard-layout "us") ;; Assumes QWERTY keyboard layout
+;; (setq ergoemacs-theme nil) ;; Uses Standard Ergoemacs keyboard theme
+;; (setq ergoemacs-keyboard-layout "us") ;; Assumes QWERTY keyboard layout
 
 ;; visual line mode
 (global-visual-line-mode 1)
