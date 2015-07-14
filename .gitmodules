@@ -10,3 +10,9 @@
 [submodule "vendor/tabbar"]
 	path = vendor/tabbar
 	url = git@github.com:dholm/tabbar.git
+[submodule "vendor/helm"]
+	path = vendor/helm
+	url = https://github.com/emacs-helm/helm.git
+[submodule "vendor/emacs-async"]
+	path = vendor/emacs-async
+	url = https://github.com/jwiegley/emacs-async.git
