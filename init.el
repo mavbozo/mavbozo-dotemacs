@@ -7,9 +7,18 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
+
+;; Install HELM
+;; [Facultative] Only if you have installed async.
+(add-to-list 'load-path "~/.emacs.d/vendor/emacs-async")
+
+(add-to-list 'load-path "~/.emacs.d/vendor/helm")
+(require 'helm-config)
+
 ;; My default package
-(defvar my-packages '(ergoemacs-mode helm clojure-mode clojure-snippets company magit dash rainbow-delimiters cider inf-clojure yaml-mode markdown-mode  php-mode web-mode s)
+(defvar my-packages '(ergoemacs-mode clojure-mode clojure-snippets company magit dash rainbow-delimiters cider inf-clojure yaml-mode markdown-mode  php-mode web-mode s clojure-cheatsheet)
   "A list of packages to ensure are installed at launch.")
+
 
 ;; Install those default packages if not yet installed
 (dolist (p my-packages)
@@ -17,6 +26,9 @@
     (package-install p)))
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/vendor/zenburn-emacs")
+
+;; require helm
+;; (require 'helm-config)
 
 ;; load tabbar
 (add-to-list 'load-path "~/.emacs.d/vendor/tabbar")
@@ -47,7 +59,7 @@
  '(custom-enabled-themes (quote (zenburn)))
  '(custom-safe-themes
    (quote
-    ("73f73866cf7eb34c09b0815d013c010c77b972b45b5978a509c9af98360e01a4" "8fdbbb7bdff3abd71cedc2fa87ced496579786369c8fae932d3b1ca4828c49be" default)))
+    ("943bff6eada8e1796f8192a7124c1129d6ff9fbd1a0aed7b57ad2bf14201fdd4" "73f73866cf7eb34c09b0815d013c010c77b972b45b5978a509c9af98360e01a4" "8fdbbb7bdff3abd71cedc2fa87ced496579786369c8fae932d3b1ca4828c49be" default)))
  '(ergoemacs-ctl-c-or-ctl-x-delay 0.2)
  '(ergoemacs-handle-ctl-c-or-ctl-x (quote both))
  '(ergoemacs-ini-mode t)
@@ -124,3 +136,4 @@
 (load "~/.emacs.d/mavbozo-custom")
 
 
+(put 'narrow-to-region 'disabled nil)

@@ -55,16 +55,14 @@
 ;; rainbow delimiters for all programming mode
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
-
-
 ;; CIDER setup
 (add-hook 'cider-repl-mode-hook 'subword-mode)
 (add-hook 'cider-repl-mode-hook 'smartparens-strict-mode)
 (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
 (setq cider-auto-select-error-buffer nil)
 
-(add-to-list 'load-path "~/.emacs.d/vendor/clojure-cheatsheet")
-(require 'clojure-cheatsheet)
+;; (add-to-list 'load-path "~/.emacs.d/vendor/clojure-cheatsheet")
+;; (require 'clojure-cheatsheet)
 
 
 ;; YASNIPPET
@@ -115,6 +113,13 @@
 ;; WEB-MODE
 (require 'web-mode) (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode)) (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode)) (add-to-list 'auto-mode-alist '("\\.[gj]sp\\'" . web-mode)) (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode)) (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode)) (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode)) (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2))
+
+(add-hook 'web-mode-hook 'my-web-mode-hook)
 
 ;; CIDER CUSTOMIZATION
 ;;; Remove ^M from clojure repl in windows
@@ -207,4 +212,4 @@
 			load-path))
 (setq erlang-root-dir (getenv "ERLANG_PATH"))
 (setq exec-path (cons (concat (getenv "ERLANG_PATH") "\\bin") exec-path))
-(require 'erlang-start)
+;;(require 'erlang-start)

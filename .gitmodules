@@ -1,6 +1,3 @@
-[submodule "vendor/clojure-cheatsheet"]
-	path = vendor/clojure-cheatsheet
-	url = git@github.com:mavbozo/clojure-cheatsheet.git
 [submodule "vendor/smartparens"]
 	path = vendor/smartparens
 	url = git@github.com:Fuco1/smartparens.git
