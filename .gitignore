@@ -2,3 +2,7 @@ auto-save-list
 elpa
 vendor
 server
+.org-*
+async-bytecomp.log
+eshell/*
+session.*
