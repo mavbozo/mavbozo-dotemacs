@@ -12,8 +12,8 @@
 
 
 ;; TABBAR SETTINGS
-(global-set-key (kbd "C-M-j") 'tabbar-backward-tab)
-(global-set-key (kbd "C-M-l") 'tabbar-forward-tab)
+;;(global-set-key (kbd "C-M-j") 'tabbar-backward-tab)
+;;(global-set-key (kbd "C-M-l") 'tabbar-forward-tab)
 
 ;; Add a buffer modification state indicator in the tab label, and place a
 ;; space around the label to make it looks less crowd.
@@ -51,7 +51,7 @@
 (add-hook 'clojure-mode-hook 'subword-mode)
 
 ;; inferior clojure hook
-(add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
+;; (add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
 
 ;; rainbow delimiters for all programming mode
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
@@ -112,7 +112,11 @@
 
 
 ;; WEB-MODE
-(require 'web-mode) (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode)) (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode)) (add-to-list 'auto-mode-alist '("\\.[gj]sp\\'" . web-mode)) (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode)) (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode)) (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode)) (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.blade\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[gj]sp\\'" . web-mode)) (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode)) (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode)) (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode)) (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
 (defun my-web-mode-hook ()
   "Hooks for Web mode."
@@ -123,6 +127,19 @@
 (add-hook 'web-mode-hook 'my-web-mode-hook)
 
 ;; CIDER CUSTOMIZATION
+
+(defun cider-repl-prompt-abbreviated (namespace)
+  "Return a prompt string that abbreviates NAMESPACE."
+  (let* ((names (reverse (split-string namespace "\\.")))
+         (lastname (car names)))
+    (concat (mapconcat (lambda (s) (concat (substring s 0 1) "."))
+                       (reverse (cdr names))
+                       "")
+            lastname
+            "> ")))
+
+(setq cider-repl-prompt-function 'cider-repl-prompt-abbreviated)
+
 ;;; Remove ^M from clojure repl in windows
 ;;; commented because here https://github.com/clojure-emacs/cider#microsoft-windows, we can set it up on JVM opts
 ;;; (defun remove-dos-eol ()
@@ -214,3 +231,19 @@
 ;;(setq erlang-root-dir (getenv "ERLANG_PATH"))
 ;;(setq exec-path (cons (concat (getenv "ERLANG_PATH") "\\bin") exec-path))
 ;;(require 'erlang-start)
+
+
+(add-to-list 'load-path "~/.emacs.d/vendor/align-cljlet")
+(require 'align-cljlet)
+
+
+(add-to-list 'load-path "~/.emacs.d/vendor/mavbozo-fly-keys")
+(require 'xah-fly-keys)
+(xah-fly-keys 1)
+
+;; set key to activate command mode. (regardless what's current mode)
+(global-set-key (kbd "<f8>") 'xah-fly-command-mode-activate)
+(global-set-key (kbd "<escape>") 'xah-fly-command-mode-activate)
+
+;; toggle xah-fly-keys
+(global-set-key (kbd "<f7>") 'xah-fly-keys)

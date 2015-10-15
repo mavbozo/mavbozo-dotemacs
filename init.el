@@ -70,6 +70,7 @@
  '(ergoemacs-theme-options nil)
  '(ergoemacs-use-menus t)
  '(fci-rule-color "#383838")
+ '(global-ede-mode t)
  '(global-linum-mode t)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-tail-colors
@@ -97,6 +98,7 @@
  '(scroll-error-top-bottom nil)
  '(set-mark-command-repeat-pop nil)
  '(shift-select-mode nil)
+ '(show-paren-mode t)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
  '(tabbar-mode t nil (tabbar))
  '(tool-bar-mode nil)
