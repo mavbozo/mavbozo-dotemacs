@@ -80,33 +80,7 @@
 
 
 ;; DATOMIC SNIPPETS
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/"))
-(package-initialize)
 
-;; Install package when not installed
-(when (not package-archive-contents)
-  (package-refresh-contents))
-
-;; My default package
-(defvar my-packages '(ergoemacs-mode clojure-mode clojure-snippets tabbar company magit dash rainbow-delimiters cider markdown-mode php-mode web-mode s)
-  "A list of packages to ensure are installed at launch.")
-
-;; Install those default packages if not yet installed
-(dolist (p my-packages)
-  (when (not (package-installed-p p))
-    (package-install p)))
-
-(add-to-list 'custom-theme-load-path "~/.emacs.d/vendor/zenburn-emacs")
-
-;; ergoemacs mode
-(require 'ergoemacs-mode)
-(setq ergoemacs-theme nil) ;; Uses Standard Ergoemacs keyboard theme
-(setq ergoemacs-keyboard-layout "us") ;; Assumes QWERTY keyboard layout
-
-;; visual line mode
-(global-visual-line-mode 1)
 (add-to-list 'load-path "~/.emacs.d/vendor/datomic-snippets")
 (require 'datomic-snippets)
 
@@ -150,74 +124,6 @@
 
 ;;; (add-hook 'cider-repl-mode-hook 'remove-dos-eol) ;Remove ^M from clojure repl in windows
 
-
-;;; cider reloaded
-(defun cider-repl-reset ()
-  (interactive)
-  (save-some-buffers)
-  (with-current-buffer (cider-current-repl-buffer)
-    (goto-char (point-max))
-    (insert "(user/reset)")
-    (cider-repl-return)))
-
-;;unset f12 key which is globally bind by ergoemacs-mode
-(global-unset-key (kbd "<f12>")) 
-
-(defun set-cider-repl-reset-key ()
-  (global-set-key (kbd "<f12>") 'cider-repl-reset))
-
-(add-hook 'cider-repl-mode-hook 'set-cider-repl-reset-key)
-
-
-(defun cider-repl-refresh ()
-  (interactive)
-  (save-some-buffers)
-  (with-current-buffer (cider-current-repl-buffer)
-    (goto-char (point-max))
-    (insert "(refresh)")
-    (cider-repl-return)))
-
-
-(defun set-cider-repl-refresh-key ()
-  (global-set-key (kbd "<f10>") 'cider-repl-refresh))
-
-(add-hook 'cider-repl-mode-hook 'set-cider-repl-refresh-key)
-
-
-(defun cider-repl-refresh-all ()
-  (interactive)
-  (save-some-buffers)
-  (with-current-buffer (cider-current-repl-buffer)
-    (goto-char (point-max))
-    (insert "(refresh-all)")
-    (cider-repl-return)))
-
-
-(defun set-cider-repl-refresh-all-key ()
-  (global-set-key (kbd "<f11>") 'cider-repl-refresh-all))
-
-(add-hook 'cider-repl-mode-hook 'set-cider-repl-refresh-all-key)
-
-
-
-(defun cider-eval-expression-at-point-in-repl ()
-  (interactive)
-  (let ((form (cider-sexp-at-point)))
-    ;; Strip excess whitespace
-    (while (string-match "\\`\s+\\|\n+\\'" form)
-      (setq form (replace-match "" t t form)))
-    (set-buffer (cider-find-or-create-repl-buffer))
-    (goto-char (point-max))
-    (insert form)
-    (cider-repl-return)))
-
-
-(defun set-cider-eval-expression-at-point-in-repl ()
-  (global-set-key (kbd "<f9>") 'cider-eval-expression-at-point-in-repl))
-
-(add-hook 'cider-repl-mode-hook 'set-cider-eval-expression-at-point-in-repl)
-
-
 ;; UNIQUIFY
 (require 'uniquify)
 
@@ -231,6 +137,14 @@
 ;;(setq erlang-root-dir (getenv "ERLANG_PATH"))
 ;;(setq exec-path (cons (concat (getenv "ERLANG_PATH") "\\bin") exec-path))
 ;;(require 'erlang-start)
+
+
+;; UNDO-TREE
+(require 'undo-tree)
+(global-undo-tree-mode 1)
+
+(defalias 'redo 'undo-tree-redo)
+
 
 
 (add-to-list 'load-path "~/.emacs.d/vendor/align-cljlet")

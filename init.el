@@ -16,7 +16,7 @@
 (require 'helm-config)
 
 ;; My default package
-(defvar my-packages '(ergoemacs-mode clojure-mode clojure-snippets company magit dash rainbow-delimiters cider inf-clojure yaml-mode markdown-mode  php-mode web-mode s clojure-cheatsheet)
+(defvar my-packages '(clojure-mode clojure-snippets company magit dash rainbow-delimiters cider inf-clojure yaml-mode markdown-mode  php-mode web-mode s clojure-cheatsheet)
   "A list of packages to ensure are installed at launch.")
 
 
@@ -33,11 +33,6 @@
 ;; load tabbar
 (add-to-list 'load-path "~/.emacs.d/vendor/tabbar")
 (require 'tabbar)
-
-;; ergoemacs mode
-(require 'ergoemacs-mode)
-(setq ergoemacs-theme nil) ;; Uses Standard Ergoemacs keyboard theme
-(setq ergoemacs-keyboard-layout "us") ;; Assumes QWERTY keyboard layout
 
 ;; visual line mode
 (global-visual-line-mode 1)
